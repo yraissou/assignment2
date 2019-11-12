@@ -1,0 +1,140 @@
+Warning: Using a password on the command line interface can be insecure.
+ERROR 1064 (42000) at line 1: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '--Make sure i am connected to the correct database
+SELECT DATABASE()' at line 1
+ERROR 1064 (42000) at line 4: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '--Load the data copied into my assignment2 directory as 'datapatient.txt' into t' at line 1
+ERROR 1064 (42000) at line 7: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '--Before
+SELECT * FROM patient' at line 1
+ERROR 1064 (42000) at line 10: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '--Insert myself as a patient 
+INSERT INTO patient VALUES (123456789, 'Yassin', '' at line 1
+--------------
+--Make sure i am connected to the correct database
+SELECT DATABASE()
+--------------
+
+--------------
+--Load the data copied into my assignment2 directory as 'datapatient.txt' into the patient table
+LOAD DATA LOCAL INFILE  'datapatient.txt' INTO TABLE patient
+--------------
+
+--------------
+--Before
+SELECT * FROM patient
+--------------
+
+--------------
+--Insert myself as a patient 
+INSERT INTO patient VALUES (123456789, 'Yassin', 'Raissouni', NULL)
+--------------
+
+--------------
+--When loading the data, just OHIPNumber were load. So, i'll update the patient table to add first names and last names
+UPDATE patient SET FirstName='Bill', LastName='Gellar' WHERE OHIPNumber='110112113';
+UPDATE patient SET FirstName='Sean', LastName='Gellar' WHERE OHIPNumber='444555666';
+UPDATE patient SET FirstName='Jon', LastName='Green' WHERE OHIPNumber='111222333';
+UPDATE patient SET FirstName='Colleen', LastName='Gellar' WHERE OHIPNumber='333444555';
+UPDATE patient SET FirstName='Scotty', LastName='Bing' WHERE OHIPNumber='667766777';
+UPDATE patient SET FirstName='Suzi', LastName='Bing' WHERE OHIPNumber='111222111';
+
+
+--After
+SELECT * FROM patient;
+
+--Before
+SELECT * FROM doctor;
+
+--Insert data to the doctor table 
+INSERT INTO doctor VALUES ('RD34', 'Bernie', 'Kavorikian', 'Urologist', 19800909, NULL);
+INSERT INTO doctor VALUES ('GD56', 'Joey', 'Shabado', 'Podiatrist', 19600624, NULL);
+INSERT INTO doctor VALUES ('HT45', 'Ross', 'Clooney', 'Surgeon', 19870620, NULL);
+INSERT INTO doctor VALUES ('YT67', 'Ben', 'Spock', 'Pediatrician', 19550220, NULL);
+INSERT INTO doctor VALUES ('JK78', 'Mandy', 'Webster', 'Surgeon', 19900808, NULL);
+INSERT INTO doctor VALUES ('SE66', 'Colleen', 'Aziz', 'Surgeon', 19890824, NULL);
+INSERT INTO doctor VALUES ('MR49', 'Nahid', 'Loukach', 'Generalist', 19920421, NULL);
+
+--After
+SELECT * FROM doctor;
+
+--Before
+SELECT * FROM hospital;
+
+--Insert data to hospital table
+INSERT INTO hospital VALUES ('BBC', 'St.Joseph', 1000, 'London', 'On', NULL);
+INSERT INTO hospital VALUES ('ABC', 'Victoria', 1600, 'London', 'On', NULL);
+INSERT INTO hospital VALUES ('DDE', 'Victoria', 1200, 'Victoria', 'BC', NULL);
+
+--After
+SELECT * FROM hospital;
+
+--Before
+SELECT * FROM treats;
+
+--Insert data to treats table
+INSERT INTO treats VALUES (110112113, 'Bill', 'Gellar', 'Shabado');
+INSERT INTO treats VALUES (444555666, 'Sean', 'Gellar', 'Clooney');    
+INSERT INTO treats VALUES (444555666, 'Sean', 'Gellar', 'Webster');
+INSERT INTO treats VALUES (111222333, 'Jon', 'Green', 'Webster');
+INSERT INTO treats VALUES (111222333, 'Jon', 'Green', 'Aziz');
+INSERT INTO treats VALUES (111222333, 'Jon', 'Green', 'Spock');
+INSERT INTO treats VALUES (333444555, 'Colleen', 'Gellar', 'Shabado');
+INSERT INTO treats VALUES (667766777, 'Scotty', 'Bing', 'Shabado');
+INSERT INTO treats VALUES (667766777, 'Scotty', 'Bing', 'Webster');
+INSERT INTO treats VALUES (667766777, 'Scotty', 'Bing', 'Spock');
+INSERT INTO treats VALUES (111222111, 'Suzzi', 'Bing', 'Spock');
+INSERT INTO treats VALUES (123456789, 'Yassin', 'Raissouni', 'Loukach');
+
+--After
+SELECT * FROM treats;
+
+--Before
+SELECT * FROM doctor;
+
+--Change the data of the doctor table so that all the doctors work at the correct hospitals
+UPDATE doctor SET WorksInHosCode='BBC' WHERE LicenseNumber='RD34';
+UPDATE doctor SET WorksInHosCode='BBC' WHERE LicenseNumber='GD56';
+UPDATE doctor SET WorksInHosCode='DDE' WHERE LicenseNumber='HT45';
+UPDATE doctor SET WorksInHosCode='DDE' WHERE LicenseNumber='YT67';
+UPDATE doctor SET WorksInHosCode='BBC' WHERE LicenseNumber='JK78';
+UPDATE doctor SET WorksInHosCode='ABC' WHERE LicenseNumber='SE66';
+UPDATE doctor SET WorksInHosCode='ABC' WHERE LicenseNumber='MR49';
+
+--After
+SELECT * FROM doctor;
+
+--Add a column for the DateOfStart in the hospital table
+ALTER TABLE hospital ADD DateOfStart DATE;
+
+--BEFORE
+SELECT * FROM hospital;
+
+--Add the HeadDocId and DateOfStart to the hospital table
+UPDATE hospital SET HeadDocId='GD56', DateOfStart='19990910' WHERE Name='St.Joseph';
+UPDATE hospital SET HeadDocId='YT67', DateOfStart='19971207' WHERE City='Victoria';
+UPDATE hospital SET HERROR 1064 (42000) at line 13: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '--When loading the data, just OHIPNumber were load. So, i'll update the patient ' at line 1
+eadDocId='SE66', DateOfStart='19941205' WHERE HospitalCode='ABC';
+
+--After
+SELECT * FROM hospital;
+
+--Before
+SELECT * FROM patient;
+
+--Change the data of the patient table so that patient 111222111 has a last name of Brown
+UPDATE patient SET LastName='Brown' WHERE OHIPNumber=111222111;
+
+--After
+SELECT * FROM patient;
+
+--Before
+SELECT * FROM treats;
+
+--Change the data of treats table so that every patient who had Dr. Spock as a doctor treating them, now has Dr. Clooney instead
+UPDATE treats SET drLastName='Clooney' WHERE drLastName='Spock';
+
+--After
+SELECT * FROM treats;
+
+--Save the output from the script
+sudo mysql -nvvf --verbose -pcs3319 < yraissouscript2.txt > yraissououtputscript2.txt 2>&1;
+--------------
+
+Bye

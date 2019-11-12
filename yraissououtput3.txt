@@ -1,0 +1,55 @@
+Warning: Using a password on the command line interface can be insecure.
+ERROR 1064 (42000) at line 1: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '--Query 1
+SELECT LastName FROM patient' at line 1
+ERROR 1064 (42000) at line 4: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '--Query 2
+SELECT DISTINCT LastName FROM patient' at line 1
+ERROR 1064 (42000) at line 7: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '--Query 3
+SELECT * FROM doctor ORDER BY LastName' at line 1
+ERROR 1064 (42000) at line 10: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '--Query 4
+SELECT Name, HospitalCode FROM hospital WHERE NumberOfBeds>1500' at line 1
+ERROR 1064 (42000) at line 13: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '--Query 5
+SELECT LastName, FirstName FROM (SELECT* FROM doctor, hospital WHERE W' at line 1
+--------------
+--Query 1
+SELECT LastName FROM patient
+--------------
+
+--------------
+--Query 2
+SELECT DISTINCT LastName FROM patient
+--------------
+
+--------------
+--Query 3
+SELECT * FROM doctor ORDER BY LastName
+--------------
+
+--------------
+--Query 4
+SELECT Name, HospitalCode FROM hospital WHERE NumberOfBeds>1500
+--------------
+
+--------------
+--Query 5
+SELECT LastName, FirstName FROM (SELECT* FROM doctor, hospital WHERE WorksInHosCode=HospitalCode) as o WHERE o.Name='St.Joseph; 
+
+--Query 6
+SELECT FirstName, LastName FROM patient WHERE LastName LIKE "G%";
+
+--Query 7
+SELECT pFirstName, pLastName FROM treats WHERE drLastName='Clooney';
+
+--Query 8
+SELECT Name, City, LastName from (SELECT* FROM doctor, hospital WHERE HeadDocId=LicenseNumber) as a;
+
+--Query 9
+SELECT SUM(NumberOfBeds) as 'Total Number of Beds' from hospital;
+
+--Query 10
+SELECT pFirstName, a1.FirstName FROM (SELECT* FROM treats,doctor WHERE treats.drLastName=doctor.LastName) as a1, (SELECT * FROM hospital,doctor WHERE hospital.HeadDocId=doctor.LicenseNumber) as a2 WHERE a1.FirstName=a2.FirstName;
+
+----Save the output from the script
+sudo mysql -nvvf --verbose -pcs3319 < yraissouscript3.txt > yraissououtputscript3.txt 2>&1
+--------------
+
+Bye
