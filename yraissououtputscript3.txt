@@ -1,16 +1,26 @@
--- Query 1
-SELECT LastName FROM patient;
+Warning: Using a password on the command line interface can be insecure.
+ERROR 1046 (3D000) at line 2: No database selected
+ERROR 1046 (3D000) at line 5: No database selected
+ERROR 1046 (3D000) at line 8: No database selected
+ERROR 1046 (3D000) at line 11: No database selected
+ERROR 1046 (3D000) at line 14: No database selected
+--------------
+SELECT LastName FROM patient
+--------------
 
--- Query 2
-SELECT DISTINCT LastName FROM patient;
+--------------
+SELECT DISTINCT LastName FROM patient
+--------------
 
--- Query 3
-SELECT * FROM doctor ORDER BY LastName;
+--------------
+SELECT * FROM doctor ORDER BY LastName
+--------------
 
--- Query 4
-SELECT Name, HospitalCode FROM hospital WHERE NumberOfBeds>1500;
+--------------
+SELECT Name, HospitalCode FROM hospital WHERE NumberOfBeds>1500
+--------------
 
--- Query 5
+--------------
 SELECT LastName, FirstName FROM (SELECT* FROM doctor, hospital WHERE WorksInHosCode=HospitalCode) as o WHERE o.Name='St.Joseph; 
 
 -- Query 6
@@ -27,4 +37,6 @@ SELECT SUM(NumberOfBeds) as 'Total Number of Beds' from hospital;
 
 -- Query 10
 SELECT pFirstName, a1.FirstName FROM (SELECT* FROM treats,doctor WHERE treats.drLastName=doctor.LastName) as a1, (SELECT * FROM hospital,doctor WHERE hospital.HeadDocId=doctor.LicenseNumber) as a2 WHERE a1.FirstName=a2.FirstName;
+--------------
 
+Bye

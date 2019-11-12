@@ -1,0 +1,308 @@
+Warning: Using a password on the command line interface can be insecure.
+--------------
+SELECT DATABASE()
+--------------
+
++------------+
+| DATABASE() |
++------------+
+| NULL       |
++------------+
+1 row in set (0.00 sec)
+
+ERROR 1046 (3D000) at line 5: No database selected
+ERROR 1046 (3D000) at line 8: No database selected
+ERROR 1046 (3D000) at line 11: No database selected
+ERROR 1046 (3D000) at line 14: No database selected
+ERROR 1046 (3D000) at line 15: No database selected
+ERROR 1046 (3D000) at line 16: No database selected
+ERROR 1046 (3D000) at line 17: No database selected
+ERROR 1046 (3D000) at line 18: No database selected
+ERROR 1046 (3D000) at line 19: No database selected
+ERROR 1046 (3D000) at line 22: No database selected
+ERROR 1046 (3D000) at line 25: No database selected
+ERROR 1046 (3D000) at line 28: No database selected
+ERROR 1046 (3D000) at line 29: No database selected
+ERROR 1046 (3D000) at line 30: No database selected
+ERROR 1046 (3D000) at line 31: No database selected
+ERROR 1046 (3D000) at line 32: No database selected
+ERROR 1046 (3D000) at line 33: No database selected
+ERROR 1046 (3D000) at line 34: No database selected
+ERROR 1046 (3D000) at line 37: No database selected
+ERROR 1046 (3D000) at line 40: No database selected
+ERROR 1046 (3D000) at line 43: No database selected
+ERROR 1046 (3D000) at line 44: No database selected
+ERROR 1046 (3D000) at line 45: No database selected
+ERROR 1046 (3D000) at line 48: No database selected
+ERROR 1046 (3D000) at line 51: No database selected
+ERROR 1046 (3D000) at line 54: No database selected
+ERROR 1046 (3D000) at line 55: No database selected
+ERROR 1046 (3D000) at line 56: No database selected
+ERROR 1046 (3D000) at line 57: No database selected
+ERROR 1046 (3D000) at line 58: No database selected
+ERROR 1046 (3D000) at line 59: No database selected
+ERROR 1046 (3D000) at line 60: No database selected
+ERROR 1046 (3D000) at line 61: No database selected
+ERROR 1046 (3D000) at line 62: No database selected
+ERROR 1046 (3D000) at line 63: No database selected
+ERROR 1046 (3D000) at line 64: No database selected
+ERROR 1046 (3D000) at line 65: No database selected
+ERROR 1046 (3D000) at line 68: No database selected
+ERROR 1046 (3D000) at line 71: No database selected
+ERROR 1046 (3D000) at line 74: No database selected
+ERROR 1046 (3D000) at line 75: No database selected
+ERROR 1046 (3D000) at line 76: No database selected
+ERROR 1046 (3D000) at line 77: No database selected
+--------------
+LOAD DATA LOCAL INFILE  'datapatient.txt' INTO TABLE patient
+--------------
+
+--------------
+SELECT * FROM patient
+--------------
+
+--------------
+INSERT INTO patient VALUES (123456789, 'Yassin', 'Raissouni', NULL)
+--------------
+
+--------------
+UPDATE patient SET FirstName='Bill', LastName='Gellar' WHERE OHIPNumber='110112113'
+--------------
+
+--------------
+UPDATE patient SET FirstName='Sean', LastName='Gellar' WHERE OHIPNumber='444555666'
+--------------
+
+--------------
+UPDATE patient SET FirstName='Jon', LastName='Green' WHERE OHIPNumber='111222333'
+--------------
+
+--------------
+UPDATE patient SET FirstName='Colleen', LastName='Gellar' WHERE OHIPNumber='333444555'
+--------------
+
+--------------
+UPDATE patient SET FirstName='Scotty', LastName='Bing' WHERE OHIPNumber='667766777'
+--------------
+
+--------------
+UPDATE patient SET FirstName='Suzi', LastName='Bing' WHERE OHIPNumber='111222111'
+--------------
+
+--------------
+SELECT * FROM patient
+--------------
+
+--------------
+SELECT * FROM doctor
+--------------
+
+--------------
+INSERT INTO doctor VALUES ('RD34', 'Bernie', 'Kavorikian', 'Urologist', 19800909, NULL)
+--------------
+
+--------------
+INSERT INTO doctor VALUES ('GD56', 'Joey', 'Shabado', 'Podiatrist', 19600624, NULL)
+--------------
+
+--------------
+INSERT INTO doctor VALUES ('HT45', 'Ross', 'Clooney', 'Surgeon', 19870620, NULL)
+--------------
+
+--------------
+INSERT INTO doctor VALUES ('YT67', 'Ben', 'Spock', 'Pediatrician', 19550220, NULL)
+--------------
+
+--------------
+INSERT INTO doctor VALUES ('JK78', 'Mandy', 'Webster', 'Surgeon', 19900808, NULL)
+--------------
+
+--------------
+INSERT INTO doctor VALUES ('SE66', 'Colleen', 'Aziz', 'Surgeon', 19890824, NULL)
+--------------
+
+--------------
+INSERT INTO doctor VALUES ('MR49', 'Nahid', 'Loukach', 'Generalist', 19920421, NULL)
+--------------
+
+--------------
+SELECT * FROM doctor
+--------------
+
+--------------
+SELECT * FROM hospital
+--------------
+
+--------------
+INSERT INTO hospital VALUES ('BBC', 'St.Joseph', 1000, 'London', 'On', NULL)
+--------------
+
+--------------
+INSERT INTO hospital VALUES ('ABC', 'Victoria', 1600, 'London', 'On', NULL)
+--------------
+
+--------------
+INSERT INTO hospital VALUES ('DDE', 'Victoria', 1200, 'Victoria', 'BC', NULL)
+--------------
+
+--------------
+SELECT * FROM hospital
+--------------
+
+--------------
+SELECT * FROM treats
+--------------
+
+--------------
+INSERT INTO treats VALUES (110112113, 'Bill', 'Gellar', 'Shabado')
+--------------
+
+--------------
+INSERT INTO treats VALUES (444555666, 'Sean', 'Gellar', 'Clooney')
+--------------
+
+--------------
+INSERT INTO treats VALUES (444555666, 'Sean', 'Gellar', 'Webster')
+--------------
+
+--------------
+INSERT INTO treats VALUES (111222333, 'Jon', 'Green', 'Webster')
+--------------
+
+--------------
+INSERT INTO treats VALUES (111222333, 'Jon', 'Green', 'Aziz')
+--------------
+
+--------------
+INSERT INTO treats VALUES (111222333, 'Jon', 'Green', 'Spock')
+--------------
+
+--------------
+INSERT INTO treats VALUES (333444555, 'Colleen', 'Gellar', 'Shabado')
+--------------
+
+--------------
+INSERT INTO treats VALUES (667766777, 'Scotty', 'Bing', 'Shabado')
+--------------
+
+--------------
+INSERT INTO treats VALUES (667766777, 'Scotty', 'Bing', 'Webster')
+--------------
+
+--------------
+INSERT INTO treats VALUES (667766777, 'Scotty', 'Bing', 'Spock')
+--------------
+
+--------------
+INSERT INTO treats VALUES (111222111, 'Suzzi', 'Bing', 'Spock')
+--------------
+
+--------------
+INSERT INTO treats VALUES (123456789, 'Yassin', 'Raissouni', 'Loukach')
+--------------
+
+--------------
+SELECT * FROM treats
+--------------
+
+--------------
+SELECT * FROM doctor
+--------------
+
+--------------
+UPDATE doctor SET WorksInHosCode='BBC' WHERE LicenseNumber='RD34'
+--------------
+
+--------------
+UPDATE doctor SET WorksInHosCode='BBC' WHERE LicenseNumber='GD56'
+--------------
+
+--------------
+UPDATE doctor SET WorksInHosCode='DDE' WHERE LicenseNumber='HT45'
+--------------
+
+--------------
+UPDATE doctor SET WorksInHosCode='DDE' WHERE LicenseNumber='YT67'
+--------------
+
+--------------
+UPDATE doctor SET WorksInHosCode='BBC' WHERE LERROR 1046 (3D000) at line 78: No database selected
+ERROR 1046 (3D000) at line 79: No database selected
+ERROR 1046 (3D000) at line 80: No database selected
+ERROR 1046 (3D000) at line 83: No database selected
+ERROR 1046 (3D000) at line 86: No database selected
+ERROR 1046 (3D000) at line 89: No database selected
+ERROR 1046 (3D000) at line 92: No database selected
+ERROR 1046 (3D000) at line 93: No database selected
+ERROR 1046 (3D000) at line 94: No database selected
+ERROR 1046 (3D000) at line 97: No database selected
+ERROR 1046 (3D000) at line 100: No database selected
+ERROR 1046 (3D000) at line 103: No database selected
+ERROR 1046 (3D000) at line 106: No database selected
+ERROR 1046 (3D000) at line 109: No database selected
+ERROR 1046 (3D000) at line 112: No database selected
+ERROR 1046 (3D000) at line 115: No database selected
+icenseNumber='JK78'
+--------------
+
+--------------
+UPDATE doctor SET WorksInHosCode='ABC' WHERE LicenseNumber='SE66'
+--------------
+
+--------------
+UPDATE doctor SET WorksInHosCode='ABC' WHERE LicenseNumber='MR49'
+--------------
+
+--------------
+SELECT * FROM doctor
+--------------
+
+--------------
+ALTER TABLE hospital ADD DateOfStart DATE
+--------------
+
+--------------
+SELECT * FROM hospital
+--------------
+
+--------------
+UPDATE hospital SET HeadDocId='GD56', DateOfStart='19990910' WHERE Name='St.Joseph'
+--------------
+
+--------------
+UPDATE hospital SET HeadDocId='YT67', DateOfStart='19971207' WHERE City='Victoria'
+--------------
+
+--------------
+UPDATE hospital SET HeadDocId='SE66', DateOfStart='19941205' WHERE HospitalCode='ABC'
+--------------
+
+--------------
+SELECT * FROM hospital
+--------------
+
+--------------
+SELECT * FROM patient
+--------------
+
+--------------
+UPDATE patient SET LastName='Brown' WHERE OHIPNumber=111222111
+--------------
+
+--------------
+SELECT * FROM patient
+--------------
+
+--------------
+SELECT * FROM treats
+--------------
+
+--------------
+UPDATE treats SET drLastName='Clooney' WHERE drLastName='Spock'
+--------------
+
+--------------
+SELECT * FROM treats
+--------------
+
+Bye
