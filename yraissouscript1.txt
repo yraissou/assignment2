@@ -1,10 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-<title> Script1 </title>
-</head>
-<body>
-<p>
+
 -- List all the current databases owned by you
 SHOW DATABASES;
 
@@ -58,10 +52,3 @@ ALTER TABLE treats ADD FOREIGN KEY (drLastName) REFERENCES doctor(drLastName);
 
 -- List the tables again
 SHOW TABLES;
-
---Save the output from the script
-sudo mysql -nvvf --verbose -pcs3319 < yraissouscript1.txt > yraissououtput1.txt 2>&1
-</p>
-</body>
-</html>
-
